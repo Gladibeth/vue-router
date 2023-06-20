@@ -2,11 +2,12 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 import ListPage from '@/modules/pokemon/pages/ListPage';
 import AboutPage from '@/modules/pokemon/pages/AboutPage';
 import PokemonPage from '@/modules/pokemon/pages/PokemonPage';
-
+import NotFoundPage from '@/modules/shared/pages/NotPageFound';
 const routes = [
   { path: '/', component: ListPage },
   { path: '/about', component: AboutPage },
   { path: '/id', component: PokemonPage },
+  { path: '/:pathMatch(.*)*', component: NotFoundPage},
 ]
 
 const router = createRouter({
