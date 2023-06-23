@@ -17,4 +17,7 @@
     font-weight: 600;
     margin: 0 10px;
   }
+  a.router-link-exact-active{
+    color: #42b983;
+  }
 </style>
