@@ -10,7 +10,8 @@ const routes = [
     component: () => import( /* webpackChunkName: "AboutPage"*/'@/modules/pokemon/pages/AboutPage'
   )},
   { 
-    path: '/id', 
+    path: '/:id', 
+    name: 'pokemonid', 
     component: () => import( /* webpackChunkName: "PokemonPage" */'@/modules/pokemon/pages/PokemonPage'
   )},
   { 
