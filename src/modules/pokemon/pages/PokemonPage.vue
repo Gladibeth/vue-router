@@ -5,16 +5,22 @@
 
 <script>
 export default {
+  props:{
+    id: {
+      type: Number,
+      required: true
+    }
+  },
   data(){
     return{
-      id: null
+      //id: this.$route.params.id,
     }
   },
   created(){
     
-    const { id } = this.$route.params
+    /* const { id } = this.$route.params
     console.log(id)
-    this.id = id;
+    this.id = id; */
   }
 }
 </script>
