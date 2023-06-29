@@ -1,9 +1,9 @@
 <template>
   <div>
-    <!-- <router-link :to="{ name: 'home' }">Pokemon List</router-link>
+    <!-- <router-link :to="{ name: 'pokemon' }">Pokemon List</router-link>
     <router-link :to="{ name: 'pokemonid', params: {id: 150} }">Pokemon por id</router-link>
-    <router-link :to="{ name: 'about' }">About</router-link> -->
-
+    <router-link :to="{ name: 'about' }">About</router-link>
+ -->
     <CustomLink 
       v-for="link in links"
       :key="link.to"
