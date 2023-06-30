@@ -31,7 +31,8 @@ const routes = [
       },
       
       { 
-        path: '', 
+        path: '',
+        name: 'PokemonPage', 
         redirect: { name: 'pokemon-home'}
       },
     ]
@@ -53,7 +54,8 @@ const routes = [
         component: () => import(/* webpackChunkName: "DBZ-Characters"*/'@/modules/dbz/pages/Characters')
       },
       { 
-        path: '', 
+        path: '',
+        name: 'DBZPage', 
         redirect: { name: 'dbz-characters'}
       },
     ]
@@ -69,6 +71,20 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+})
+
+router.beforeEach((to, from, next) => {
+    //console.log({to,from,next})
+    const random = Math.random() * 100;
+    console.log(random)
+    if( random > 50){
+      console.log('Autenticado')
+      next();
+    }else{
+      console.log('Bloqueado por beforeEach ')
+      next({name: 'pokemon-home'});
+    }
+    
 })
 
 
