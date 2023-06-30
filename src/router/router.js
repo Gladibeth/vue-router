@@ -73,7 +73,9 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, from, next) => {
+
+// guard synchronous
+/* router.beforeEach((to, from, next) => {
     //console.log({to,from,next})
     const random = Math.random() * 100;
     console.log(random)
@@ -85,8 +87,28 @@ router.beforeEach((to, from, next) => {
       next({name: 'pokemon-home'});
     }
     
-})
+}) */
 
+//Guard Async
+
+const canAccess = () => {
+  return new Promise((resolve) => {
+    const random = Math.random() * 100;
+    if( random > 50){
+      console.log('Autenticado - canAccess')
+      resolve(true)
+    }else{
+      console.log('Bloqueado por beforeEach - canAccess ')
+      resolve(false)
+    }
+  });
+}
+
+router.beforeEach( async(to,from,next) => {
+  const autorized = await canAccess();
+
+  autorized ? next() : next({name: 'pokemon-home'});
+})
 
 
 
